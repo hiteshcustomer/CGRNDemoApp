@@ -1,0 +1,38 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '11.0'
+use_frameworks! :linkage => :static
+
+target 'CustomerGluDemo' do
+  config = use_native_modules!
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+  pod 'Firebase/Messaging'
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  target 'CustomerGluDemoTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  #use_flipper!
+  #post_install do |installer|
+   # flipper_post_install(installer)
+  #end
+end
+
+target 'CustomerGluDemo-tvOS' do
+  # Pods for CustomerGluDemo-tvOS
+
+  target 'CustomerGluDemo-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end

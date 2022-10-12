@@ -1,6 +1,7 @@
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View,SafeAreaView } from 'react-native'
 import { scale } from 'react-native-size-matters'
+import { appColors } from '../../utils/appColors'
 
 export default function Container({children,isScrollable,bodyStyle}) {
     return (
@@ -20,6 +21,7 @@ export default function Container({children,isScrollable,bodyStyle}) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        backgroundColor:appColors.white
     },
     innerView:{
         flex:1,

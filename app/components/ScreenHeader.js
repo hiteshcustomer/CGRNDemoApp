@@ -29,7 +29,7 @@ export default function ScreenHeader({backIcon, rightIcon, label, showSearch}) {
             backgroundColor: appColors.primary,
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: scale(25),
+            borderRadius: scale(25)
           }}>
           <Feather
             name={rightIcon ? rightIcon : 'search'}

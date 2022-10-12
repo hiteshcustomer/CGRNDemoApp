@@ -86,6 +86,7 @@ function index({navigation, auth}) {
             placeholder="Input here"
             InputStyle={{
               width: '100%',
+              color: "white"
             }}
           />
         </View>

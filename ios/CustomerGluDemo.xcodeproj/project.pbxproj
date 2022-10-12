@@ -812,7 +812,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XZR7N982GP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CustomerGluDemo/Info.plist;
@@ -842,7 +842,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XZR7N982GP;
 				INFOPLIST_FILE = CustomerGluDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

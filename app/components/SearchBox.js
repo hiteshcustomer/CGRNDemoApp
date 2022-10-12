@@ -17,7 +17,7 @@ export default function SearchBox({autoFocus,onFoucs, hideCamra, onRightIconPres
           flexDirection: 'row',
           height: scale(40),
         }}>
-        <Feather name="search" size={scale(20)} color={appColors.black} />
+        <Feather name="search" size={scale(20)} color={appColors.white} />
         <TextInput 
         autoFocus={autoFocus}
           onFocus={onFoucs && onFoucs}

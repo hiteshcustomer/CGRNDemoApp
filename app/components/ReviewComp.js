@@ -29,7 +29,7 @@ export default function ReviewComp() {
               //style={{paddingVertical: 10,  }}
             />
           </View>
-          <Text style={{flexWrap: 'wrap'}}>{detail}</Text>
+          <Text style={{flexWrap: 'wrap', color: "white"}}>{detail}</Text>
         </View>
       </View>
     );

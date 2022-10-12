@@ -89,7 +89,7 @@ function Home({
       </View>
 
       <View style={{paddingVertical: scale(30),marginLeft:scale(10)}}>
-        <RenderTitle heading="Categories" />
+        <RenderTitle heading="Categories"/>
 
         <FlatList
           style={{marginTop: scale(40),marginLeft:scale(10),marginRight:scale(10)}}

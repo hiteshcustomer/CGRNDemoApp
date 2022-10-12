@@ -127,7 +127,7 @@ function index({
 
       <View
         style={[
-          {marginTop: 30, width: '100%', zIndex: 10, position: 'relative'},
+          {marginTop: 0, width: '100%', zIndex: 10, position: 'relative', backgroundColor: "black"},
           Platform.OS == 'ios' && {
             height: 125,
           },

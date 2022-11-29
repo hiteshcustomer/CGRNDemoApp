@@ -737,10 +737,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@customerglu/react-native-customerglu@^1.0.4":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@customerglu/react-native-customerglu/-/react-native-customerglu-1.0.5.tgz#a10e8942b2401243413b4372ce08e61aac005737"
-  integrity sha512-tNMJhUubWFdZoLQDhS7sQVZe+ezH8ljpLAodlRiMqoJ8CuL9M73UoylunXj0tMLrouQVCKX44kt9Q82O458cKw==
+"@customerglu/react-native-customerglu@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@customerglu/react-native-customerglu/-/react-native-customerglu-1.1.1.tgz#51cc3782dc6d8a2952c01a483efcf195eb6ef42f"
+  integrity sha512-mkk8y2LciPWd+cV8oT85uebl6Zqic0a81cb0PMEvKqWL2psL6Yln01nZOzta2v9soz4DsE0RnXTj0oooLzbOYg==
 
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"

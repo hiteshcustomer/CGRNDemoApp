@@ -143,7 +143,7 @@ export const profileKeys = [
     lebel: 'Wallet',
     isNew: true,
     icon: 'credit-card',
-    action: () => openWallet(true),
+    action: () => openWallet(),
   },
   {
     lebel: 'Edit Profile',

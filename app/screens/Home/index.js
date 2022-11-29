@@ -17,6 +17,7 @@ import {
   setApnFcmToken,
   SetCurrentClassName,
   closeWebView,
+  gluSDKDebuggingMode,
 } from '@customerglu/react-native-customerglu';
 
 import {useFocusEffect, useRoute} from '@react-navigation/native';
@@ -47,7 +48,7 @@ function Home({
       user.apnsDeviceToken = token.token;
       await setApnFcmToken(user.apnsDeviceToken,"");
     }
-
+    //  gluSDKDebuggingMode(true)
     closeWebView(true)
     console.log(`Updating user`, user);
     RegisterDevice(user);

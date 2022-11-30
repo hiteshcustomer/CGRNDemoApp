@@ -169,7 +169,7 @@ function index({
       <View style={{backgroundColor: 'red', bottom: scale(-15)}}>
         <BottomButtons
           onPress={() => {
-            sendEvent('orderPlaced');
+            sendEvent('orderPlaced',{productCount: 1,amount: 110});
             navigation.navigate('SuccessPage');
           }}
           buttonLabel={'CHECKOUT'}

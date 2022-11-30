@@ -6,6 +6,7 @@ import Label from '../../components/Label';
 import ScreenHeader from '../../components/ScreenHeader';
 import {appColors, shadow} from '../../utils/appColors';
 import {orderList} from '../../utils/MockData';
+import {sendEvent} from '../../services/customerGlu';
 import {
   openWallet,
   SetCurrentClassName,
@@ -18,6 +19,7 @@ export default function index({navigation}) {
 
   useFocusEffect(
     React.useCallback(() => {
+      sendEvent('orderTracked',{});
       SetCurrentClassName(route.name);
     }, []),
   );

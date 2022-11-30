@@ -9,6 +9,7 @@ import {appColors} from '../../utils/appColors';
 import {bestSellersList} from '../../utils/MockData';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
 import {SetCurrentClassName} from '@customerglu/react-native-customerglu';
+import {sendEvent} from '../../services/customerGlu';
 
 export default function index() {
   // for Pop ups
@@ -17,6 +18,7 @@ export default function index() {
   useFocusEffect(
     React.useCallback(() => {
       SetCurrentClassName(route.name);
+      sendEvent('viewedWishlist',{});
     }, []),
   );
   const renderBagge = () => {

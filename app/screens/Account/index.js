@@ -79,7 +79,7 @@ function Account({navigation, auth}) {
   );
 
   useFocusEffect(() => {
-    sendEvent('viewedProfile',{accountName: 'Amusoftech',accountEmail: 'amusoftech@gmail.com'});
+    sendEvent('viewedProfile',{});
   }, []);
 
   const ItemCard = ({item}) => {

@@ -10,6 +10,7 @@ import {appColors} from '../../utils/appColors';
 import StarRating from 'react-native-star-rating';
 import Feather from 'react-native-vector-icons/Feather';
 import BottomButtons from '../../components/BottomButtons';
+import {sendEvent} from '../../services/customerGlu';
 export default function index({navigation,route:{params}}) {
     const {title}  =params
   const [activeCount, setActiveCount] = useState(3);
@@ -63,6 +64,7 @@ export default function index({navigation,route:{params}}) {
        <View style={{paddingVertical: scale(20), alignItems: 'flex-end'}}>
         <View style={{flex: 0.5, width: '50%'}}>
           <CustomButton         onPress={() => {
+          sendEvent('reviewedProduct',{productName: 'productName',productCategory: 'Men',rating:4});
           navigation.goBack()
         }} label="SEND" />
         </View>

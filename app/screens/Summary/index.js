@@ -25,7 +25,7 @@ function index(props) {
 
   const onPaymentDone = (info) => {
     AlertHelper.show('success', 'Your Order Placed Successfully');
-    sendEvent("orderPlaced",{accountName: 'Amusoftech',accountEmail: 'amusoftech@gmail.com'});
+    // sendEvent('orderPlaced',{productCount: 1,amount: 110});
     navigation.navigate('Home');
   };
   const onPay = async () => {

@@ -127,6 +127,22 @@ function index({
             <FlatList showsHorizontalScrollIndicator={false} ItemSeparatorComponent={()=> <View style={{padding:scale(10)}} /> } horizontal data={topBrands}  renderItem={({item,index})=><BrandCard key={index} item={item}/> } />
           </View>
         </View> */}
+                   <View
+              style={{
+                marginTop: scale(40),
+                paddingHorizontal: scale(0),
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+                      <Pressable onPress={() => navigation.goBack()}>
+                <Feather
+                  name="chevron-left"
+                  size={scale(25)}
+                  color={appColors.black}
+                />
+              </Pressable>
+              </View>
         <View style={{flex: 1, marginBottom: scale(50), alignItems: 'center'}}>
           <FlatList
             refreshControl={

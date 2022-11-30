@@ -113,7 +113,7 @@ function index({
   };
 
   useFocusEffect(() => {
-    sendEvent('viewedSection');
+    sendEvent('viewedSection',{accountName: 'Amusoftech',accountEmail: 'amusoftech@gmail.com'});
   }, []);
 
   return (

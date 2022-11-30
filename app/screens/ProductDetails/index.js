@@ -40,7 +40,7 @@ function index({
   } = params.item;
 
   useFocusEffect(() => {
-    sendEvent('viewedProduct');
+    sendEvent('viewedProduct',{accountName: 'Amusoftech',accountEmail: 'amusoftech@gmail.com'});
   }, []);
 
   // for Pop ups
@@ -156,7 +156,7 @@ function index({
             <TitleComp heading={'Reviews'} />
             <Pressable
               onPress={() => {
-                sendEvent('reviewedProduct');
+                sendEvent('reviewedProduct',{accountName: 'Amusoftech',accountEmail: 'amusoftech@gmail.com'});
                 navigation.navigate('WriteReview', {name});
               }}>
               <Label text="Write your review" style={styles.wrtitle} />

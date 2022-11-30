@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, Image, Pressable, Platform} from 'react-native';
+import React, {useEffect,useState} from 'react';
+import {StyleSheet, View, FlatList, Pressable, Platform,NativeModules,NativeEventEmitter,Dimensions} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Label from '../../components/Label';
@@ -29,10 +29,41 @@ function index({
 }) {
   // for Pop ups
   const route = useRoute();
+  const [finalHeight, setFinalHeight] = useState(0);
+  const strbanerId = "cart_banner"
 
   useFocusEffect(
     React.useCallback(() => {
       SetCurrentClassName(route.name);
+
+      const { Rncustomerglu } = NativeModules;
+      const RncustomergluManagerEmitter = new NativeEventEmitter(Rncustomerglu);
+  
+      if (Platform.OS === 'ios') {
+        eventfheight = RncustomergluManagerEmitter.addListener(
+            'CGBANNER_FINAL_HEIGHT',
+            (reminder) => {
+                console.log('reminder----', reminder);
+                if (reminder && reminder[strbanerId]) {
+                  const windowHeight = Dimensions.get('window').height;
+                     setFinalHeight(reminder[strbanerId] * windowHeight / 100);
+                }
+  
+            }
+  
+        );
+    }
+  
+      return () => {
+  
+        if (Platform.OS === 'ios') {
+            console.log('destroy.!!!!!!!!')
+            eventfheight.remove();
+  
+        }
+  
+    }
+
     }, []),
   );
 
@@ -129,11 +160,11 @@ function index({
         style={[
           {marginTop: 0, width: '100%', zIndex: 10, position: 'relative', backgroundColor: "black"},
           Platform.OS == 'ios' && {
-            height: 125,
+            height: finalHeight,
           },
         ]}>
-        <Banner bannerId="cart_banner" 
-          style={{ width: '100%', height: Platform.OS === 'ios' ? 150 : null }}/>
+        <Banner bannerId = {strbanerId}
+          style={{ width: '100%', height: Platform.OS === 'ios' ? finalHeight : null }}/>
       </View>
       <View style={{backgroundColor: 'red', bottom: scale(-15)}}>
         <BottomButtons

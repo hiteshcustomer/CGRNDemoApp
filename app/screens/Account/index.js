@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {View, StyleSheet, Pressable, FlatList, Platform} from 'react-native';
+import React, {useEffect,useState} from 'react';
+import {View, StyleSheet, Pressable, FlatList, Platform,NativeModules,NativeEventEmitter,Dimensions} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Feather from 'react-native-vector-icons/Feather';
@@ -25,6 +25,8 @@ import Banner_Container from '../../components/Banner_Container';
 function Account({navigation, auth}) {
   const dispatch = useDispatch();
   const route = useRoute();
+  const [finalHeight, setFinalHeight] = useState(0);
+  const strbanerId = "profile_banner"
 
   const onLogout = async () => {
     console.log('Clearing data');
@@ -44,6 +46,35 @@ function Account({navigation, auth}) {
   useFocusEffect(
     React.useCallback(() => {
       SetCurrentClassName(route.name);
+
+      const { Rncustomerglu } = NativeModules;
+      const RncustomergluManagerEmitter = new NativeEventEmitter(Rncustomerglu);
+  
+      if (Platform.OS === 'ios') {
+        eventfheight = RncustomergluManagerEmitter.addListener(
+            'CGBANNER_FINAL_HEIGHT',
+            (reminder) => {
+                console.log('reminder----', reminder);
+                if (reminder && reminder[strbanerId]) {
+                  const windowHeight = Dimensions.get('window').height;
+                    setFinalHeight(reminder[strbanerId] * windowHeight / 100);
+                }
+  
+            }
+  
+        );
+    }
+  
+      return () => {
+  
+        if (Platform.OS === 'ios') {
+            console.log('destroy.!!!!!!!!')
+            eventfheight.remove();
+  
+        }
+  
+    }
+
     }, [navigation]),
   );
 
@@ -100,15 +131,21 @@ function Account({navigation, auth}) {
         </View>
       </View>
 
-       <View>
-        <Banner bannerId="profile_banner" 
-          style={{ width: '100%', height: Platform.OS === 'ios' ? 150 : null }}/>
+      <View
+        style={[
+          {marginTop: 0, width: '100%', zIndex: 10, position: 'relative', backgroundColor: "black"},
+          Platform.OS == 'ios' && {
+            height: finalHeight,
+          },
+        ]}>
+        <Banner bannerId = {strbanerId}
+          style={{ width: '100%', height: Platform.OS === 'ios' ? finalHeight : null }}/>
       </View>
 
       
       <FlatList
         data={profileKeys}
-        style={{marginLeft:10,marginRight:10}}
+        style={{marginLeft:10,marginRight:10,marginTop:20}}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item, index}) => <ItemCard key={index} item={item} />}

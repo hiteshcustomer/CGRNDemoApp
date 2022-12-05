@@ -19,6 +19,7 @@ import {
   closeWebView,
   gluSDKDebuggingMode,
   configureSafeArea,
+  configureLoadingScreenColor,
 } from '@customerglu/react-native-customerglu';
 
 import {useFocusEffect, useRoute} from '@react-navigation/native';
@@ -56,11 +57,12 @@ function Home({
       await setApnFcmToken(user.apnsDeviceToken,"");
     }
     let obj = {
-      topHeight: 44, bottomHeight: 34,
+      topHeight: 54, bottomHeight: 34,
       topSafeAreaColor: "#000000", bottomSafeAreaColor: "#000000"
   }
 configureSafeArea(obj);
     gluSDKDebuggingMode(true)
+    configureLoadingScreenColor("#00000000")
     closeWebView(true)
     console.log(`Updating user`, user);
     RegisterDevice(user);

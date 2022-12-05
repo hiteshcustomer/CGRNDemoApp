@@ -48,6 +48,7 @@ const App: () => React$Node = () => {
   }
 
   async function handleRedirects(payload) {
+    console.log("TEST----"+JSON.stringify(payload));
     let url = payload.deepLink || payload.data?.deepLink;
     let canOpenURL = await Linking.canOpenURL(url);
     if (canOpenURL) {

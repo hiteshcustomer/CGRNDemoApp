@@ -79,7 +79,7 @@ function Account({navigation, auth}) {
   );
 
   useFocusEffect(() => {
-    sendEvent('viewedProfile',{});
+     sendEvent('viewedProfile',{});
   }, []);
 
   const ItemCard = ({item}) => {

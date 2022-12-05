@@ -11,13 +11,17 @@ import ReduxWrapper from '../../utils/ReduxWrapper';
 import {register} from '../../services/customerGlu';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../redux/authAction';
+import {useFocusEffect, useRoute} from '@react-navigation/native';
+import {
+  SetCurrentClassName,
+} from '@customerglu/react-native-customerglu';
 
 function index({navigation, auth}) {
   const dispatch = useDispatch();
   const [userId, setUserId] = useState('');
   const [tagID, setTagID] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const route = useRoute();
   useEffect(() => {
     if (auth.user.userId) {
       navigation.reset({
@@ -26,6 +30,12 @@ function index({navigation, auth}) {
       });
     }
   }, [auth]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      SetCurrentClassName(route.name);
+    }, []),
+  );
 
   const onLogin = async () => {
     if (!userId) {

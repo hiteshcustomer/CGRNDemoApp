@@ -5,7 +5,7 @@
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
   <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme">
     <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-6766214386933283~7422509112"/>
-    <meta-data android:name="CUSTOMERGLU_WRITE_KEY" android:value="QKL0SMSGtV9f88ok0kQKWaDzsbXXicxU30TNX2yl"/>
+    <meta-data android:name="CUSTOMERGLU_WRITE_KEY" android:value="5H622zRuPy2cGlheovnXcF93JoYqqxW4YHTmag70"/>
     <meta-data android:name="com.dieam.reactnativepushnotification.notification_foreground" android:value="false"/>
     <meta-data android:name="com.dieam.reactnativepushnotification.notification_color" android:resource="@color/white"/>
     <activity android:name=".MainActivity" android:exported="true" android:label="@string/app_name" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">

@@ -40,7 +40,7 @@ function index({
   } = params.item;
 
   useFocusEffect(() => {
-    sendEvent('viewedProduct');
+    sendEvent('viewedProduct',{productName: 'productName',productCategory: 'Men'});
   }, []);
 
   // for Pop ups
@@ -92,7 +92,10 @@ function index({
               </Pressable>
 
               <Pressable
-                onPress={() => addToWishList$(params.item)}
+                onPress={() => {
+                  sendEvent('addToWishlist',{productName: 'productName',productCategory: 'Men'});
+                  addToWishList$(params.item)
+                }}
                 style={{
                   borderRadius: scale(25),
                   backgroundColor: appColors.white,
@@ -156,7 +159,6 @@ function index({
             <TitleComp heading={'Reviews'} />
             <Pressable
               onPress={() => {
-                sendEvent('reviewedProduct');
                 navigation.navigate('WriteReview', {name});
               }}>
               <Label text="Write your review" style={styles.wrtitle} />

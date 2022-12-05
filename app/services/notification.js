@@ -1,6 +1,6 @@
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import PushNotification from 'react-native-push-notification';
-import {DisplayBackGroundNotification} from '@customerglu/react-native-customerglu';
+import {DisplayCGNotification} from '@customerglu/react-native-customerglu';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // Must be outside of any component LifeCycle (such as `componentDidMount`).
@@ -20,14 +20,14 @@ PushNotification.configure({
     if (notification.foreground) {
       if (notification.data.glu_message_type) {
         // (required) Called when a notification called from forground and its of In-App type
-        DisplayBackGroundNotification(notification.data);
+        DisplayCGNotification(notification.data);
       } else {
         // (required) Called when a notification called from forground and its of push type
-        DisplayBackGroundNotification(notification.data.data);
+        DisplayCGNotification(notification.data.data);
       }
     } else {
       // (required) Called when a notification called from background and its of In-App type
-      DisplayBackGroundNotification(notification.data);
+      DisplayCGNotification(notification.data);
     }
     // (required) Called when a remote is received or opened, or local notification is opened
     notification.finish(PushNotificationIOS.FetchResult.NoData);

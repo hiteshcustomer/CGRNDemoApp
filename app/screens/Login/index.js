@@ -15,6 +15,7 @@ import {loginUser} from '../../redux/authAction';
 function index({navigation, auth}) {
   const dispatch = useDispatch();
   const [userId, setUserId] = useState('');
+  const [tagID, setTagID] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -33,7 +34,11 @@ function index({navigation, auth}) {
 
     setLoading(true);
     try {
-      let user = {userId};
+      //let user = {userId};
+      var user = {userId};
+      if (tagID.length > 0){
+        user = {userId,"customAttributes":{"tag":tagID}};
+      }
       const success = await register(user);
       if (success) {
         dispatch(loginUser(user));
@@ -86,6 +91,18 @@ function index({navigation, auth}) {
             placeholder="Input here"
             InputStyle={{
               width: '100%',
+              color: "white"
+            }}
+          />
+        </View>
+        <View style={{paddingVertical: scale(10)}}>
+          <CustomInput
+            onChangeText={setTagID}
+            label="Tag (Optional)"
+            placeholder="Input here"
+            InputStyle={{
+              width: '100%',
+              color: "white"
             }}
           />
         </View>

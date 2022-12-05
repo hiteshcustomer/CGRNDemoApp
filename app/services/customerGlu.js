@@ -12,13 +12,10 @@ export async function register(userData) {
   return ok;
 }
 
-export async function sendEvent(name) {
+export async function sendEvent(name, properties) {
   let userData = {
     eventName: name,
-    eventProperties: {
-      accountName: 'Amusoftech',
-      accountEmail: 'amusoftech@gmail.com',
-    },
+    eventProperties: properties,
   };
   console.log('Sending event about', name);
   await sendData(userData);

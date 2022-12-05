@@ -3,6 +3,7 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {appColors, shadow} from '../../utils/appColors';
 import {scale} from 'react-native-size-matters';
 import Label from '../Label';
+import { color } from 'react-native-reanimated';
 export default function CustomInput({
   placeholder,
   value,
@@ -35,11 +36,10 @@ export default function CustomInput({
       <TextInput
         placeholder={placeholder}
         value={value}
-         
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        style={[styles.input, InputStyle]}
+        style={[styles.input, InputStyle, {color: appColors.black}]}
         onFocus={onFocus}
       />
       {IconRight && <IconRight />}

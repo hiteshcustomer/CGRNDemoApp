@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect} from 'react';
-import {StyleSheet, View, FlatList, Platform} from 'react-native';
+import React, {useEffect,useState} from 'react';
+import {StyleSheet, View, FlatList, Platform,NativeModules,NativeEventEmitter,Dimensions} from 'react-native';
 import {} from 'react-native-gesture-handler';
 import {categoriesList} from '../../utils/MockData';
 import {appColors, shadow} from '../../utils/appColors';
@@ -17,6 +17,8 @@ import {
   setApnFcmToken,
   SetCurrentClassName,
   closeWebView,
+  gluSDKDebuggingMode,
+  configureSafeArea,
 } from '@customerglu/react-native-customerglu';
 
 import {useFocusEffect, useRoute} from '@react-navigation/native';
@@ -31,6 +33,12 @@ function Home({
   auth,
   products: {products},
 }) {
+
+
+  const [finalHeight, setFinalHeight] = useState(0);
+  const strbanerId = "homescreen_banner"
+   
+
   async function updateToken() {
     let token = await AsyncStorage.getItem('token');
     token = JSON.parse(token);
@@ -47,7 +55,12 @@ function Home({
       user.apnsDeviceToken = token.token;
       await setApnFcmToken(user.apnsDeviceToken,"");
     }
-
+    let obj = {
+      topHeight: 44, bottomHeight: 34,
+      topSafeAreaColor: "#000000", bottomSafeAreaColor: "#000000"
+  }
+configureSafeArea(obj);
+    gluSDKDebuggingMode(true)
     closeWebView(true)
     console.log(`Updating user`, user);
     RegisterDevice(user);
@@ -62,6 +75,34 @@ function Home({
   useEffect(() => {
     getProductsList$();
     updateToken();
+
+    const { Rncustomerglu } = NativeModules;
+    const RncustomergluManagerEmitter = new NativeEventEmitter(Rncustomerglu);
+
+    if (Platform.OS === 'ios') {
+      eventfheight = RncustomergluManagerEmitter.addListener(
+          'CGBANNER_FINAL_HEIGHT',
+          (reminder) => {
+              console.log('reminder----', reminder);
+              if (reminder && reminder[strbanerId]) {
+                const windowHeight = Dimensions.get('window').height;
+                   setFinalHeight(reminder[strbanerId] * windowHeight / 100);
+              }
+
+          }
+
+      );
+  }
+
+    return () => {
+
+      if (Platform.OS === 'ios') {
+          console.log('destroy.!!!!!!!!')
+          eventfheight.remove();
+
+      }
+
+  }
   }, []);
 
   const RenderTitle = ({heading, rightLabel}) => {
@@ -81,15 +122,15 @@ function Home({
         style={[
           {marginTop: 30, zIndex: 10, position: 'relative'},
           Platform.OS == 'ios' && {
-            height: 125,
+            height: finalHeight,
           },
         ]}>
-        <Banner bannerId="homescreen_banner" 
-        style={{ width: '100%', height: Platform.OS === 'ios' ? 150 : null }} />
+        <Banner bannerId = {strbanerId}
+        style={{ width: '100%', height: Platform.OS === 'ios' ? finalHeight : null }} />
       </View>
 
       <View style={{paddingVertical: scale(30),marginLeft:scale(10)}}>
-        <RenderTitle heading="Categories" />
+        <RenderTitle heading="Categories"/>
 
         <FlatList
           style={{marginTop: scale(40),marginLeft:scale(10),marginRight:scale(10)}}

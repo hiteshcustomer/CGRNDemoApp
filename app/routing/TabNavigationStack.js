@@ -79,6 +79,9 @@ export default function TabNavigationStack({isAuth}) {
         tabBarOptions={{
           activeTintColor: appColors.primary,
           inactiveTintColor: appColors.darkGray,
+          style:{
+            backgroundColor:appColors.white
+          }
         }}>
         {routes?.map((route, key) => {
           const {name, component, options} = route;

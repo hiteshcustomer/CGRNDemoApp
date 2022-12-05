@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Platform} from 'react-native';
+import React, {useEffect,useState} from 'react';
+import {StyleSheet, View, FlatList, Platform,NativeModules,NativeEventEmitter,Dimensions} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import Container from '../../components/Container';
 import CustomButton from '../../components/CustomButton';
@@ -16,9 +16,41 @@ function index(props) {
   const {navigation} = props;
   const route = useRoute();
 
+  const [finalHeight, setFinalHeight] = useState(0);
+  const strbanerId = "ordersuccess_banner"
+
   useFocusEffect(
     React.useCallback(() => {
       SetCurrentClassName(route.name);
+
+      const { Rncustomerglu } = NativeModules;
+      const RncustomergluManagerEmitter = new NativeEventEmitter(Rncustomerglu);
+  
+      if (Platform.OS === 'ios') {
+        eventfheight = RncustomergluManagerEmitter.addListener(
+            'CGBANNER_FINAL_HEIGHT',
+            (reminder) => {
+                console.log('reminder----', reminder);
+                if (reminder && reminder[strbanerId]) {
+                  const windowHeight = Dimensions.get('window').height;
+                     setFinalHeight(reminder[strbanerId] * windowHeight / 100);
+                }
+  
+            }
+  
+        );
+    }
+  
+      return () => {
+  
+        if (Platform.OS === 'ios') {
+            console.log('destroy.!!!!!!!!')
+            eventfheight.remove();
+  
+        }
+  
+    }
+
     }, []),
   );
 
@@ -42,13 +74,17 @@ function index(props) {
 
         <View
           style={[
-            {marginTop: 30, width: '100%', zIndex: 10, position: 'relative'},
+            {marginTop: 30, width: '112%', zIndex: 10, position: 'relative'},
             Platform.OS == 'ios' && {
-              height: 125,
+              height: finalHeight,
             },
           ]}>
-          <Banner bannerId="ordersuccess_banner" />
+                  <Banner bannerId = {strbanerId}
+        style={{ width: '100%', height: Platform.OS === 'ios' ? finalHeight : null }} />
         </View>
+
+
+        
       </Container>
       <View
         style={{

@@ -94,9 +94,9 @@ function index({
     return <CheckOutItem name={title} image={image} price={price} />;
   };
   return (
-    <>
-      <Container>
-        <View style={{flex: 1, paddingVertical: scale(30)}}>
+  <View style={{flex:1,backgroundColor:'black'}}>
+      <Container style={{flex:0.3}}>
+        <View style={{flex: 1, paddingVertical: scale(30),}}>
           <SwipeListView
             ListEmptyComponent={() => <Empty label={'Your Cart is empty'} />}
             showsVerticalScrollIndicator={false}
@@ -155,10 +155,10 @@ function index({
           />
         </View>
       </Container>
-
+<View style={{flex:0.3}}>
       <View
         style={[
-          {marginTop: 0, width: '100%', zIndex: 10, position: 'relative', backgroundColor: "black"},
+          {marginTop: 0, width: '100%', zIndex: 10, position: 'absolute', backgroundColor: "black"},
           Platform.OS == 'ios' && {
             height: finalHeight,
           },
@@ -166,7 +166,9 @@ function index({
         <Banner bannerId = {strbanerId}
           style={{ width: '100%', height: Platform.OS === 'ios' ? finalHeight : null }}/>
       </View>
-      <View style={{backgroundColor: 'red', bottom: scale(-15)}}>
+</View>
+      
+      <View style={{flex:0.2,bottom: scale(-30)}}>
         <BottomButtons
           onPress={() => {
             sendEvent('orderPlaced',{productCount: 1,amount: 110});
@@ -176,7 +178,8 @@ function index({
           price={getAmount()}
         />
       </View>
-    </>
+      </View>
+
   );
 }
 /* 
@@ -188,3 +191,4 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(index); */
 export default ReduxWrapper(index);
+

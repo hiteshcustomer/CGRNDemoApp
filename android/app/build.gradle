@@ -134,7 +134,7 @@ android {
         applicationId "com.customerglu.nudgetest"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
+        versionCode 3
         versionName "1.0"
         multiDexEnabled true
     }
@@ -148,10 +148,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+            storeFile file('NEWRNCGDemo.keystore')
+            storePassword 'CGDemo'
+            keyAlias 'CGDemoAlias'
+            keyPassword 'CGDemo'
         }
         debug {
             storeFile file('debug.keystore')
@@ -184,7 +184,6 @@ android {
                 output.versionCodeOverride =
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
-
         }
     }
     packagingOptions {

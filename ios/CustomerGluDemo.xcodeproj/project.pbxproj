@@ -20,7 +20,6 @@
 		53E74A5BAB3B90E35B01883B /* Pods_CustomerGluDemo_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8283C4CA4FD2BAE770E903 /* Pods_CustomerGluDemo_tvOS.framework */; };
 		6EE26CA91AA400A3DB3AC179 /* Pods_CustomerGluDemo_CustomerGluDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD77F1D53C4117B9995BF18 /* Pods_CustomerGluDemo_CustomerGluDemoTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		829DE26C296837EC0023950E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 829DE26B296837EC0023950E /* main.jsbundle */; };
 		99653011FB0EFD319E7D870E /* Pods_CustomerGluDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755D82912E5AC4CD81ADA43E /* Pods_CustomerGluDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* CustomerGluDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomerGluDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CustomerGluDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerGluDemoTests.m; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 		755D82912E5AC4CD81ADA43E /* Pods_CustomerGluDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomerGluDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D2598DDA0298C894F76CFF5 /* Pods-CustomerGluDemo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerGluDemo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-CustomerGluDemo-tvOSTests/Pods-CustomerGluDemo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CustomerGluDemo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		829DE26B296837EC0023950E /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		8DE4DC57646607077082B95E /* Pods-CustomerGluDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerGluDemo.release.xcconfig"; path = "Target Support Files/Pods-CustomerGluDemo/Pods-CustomerGluDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A35804C17F83F93DD8110337 /* Pods-CustomerGluDemo-CustomerGluDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerGluDemo-CustomerGluDemoTests.release.xcconfig"; path = "Target Support Files/Pods-CustomerGluDemo-CustomerGluDemoTests/Pods-CustomerGluDemo-CustomerGluDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD77F1D53C4117B9995BF18 /* Pods_CustomerGluDemo_CustomerGluDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomerGluDemo_CustomerGluDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				F853373C28E3667B007F576D /* CustomerGluDemo.entitlements */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -189,7 +185,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				829DE26B296837EC0023950E /* main.jsbundle */,
 				34055C0826E3BADA001B6A88 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* CustomerGluDemo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -362,7 +357,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				829DE26C296837EC0023950E /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				34055C0926E3BADA001B6A88 /* GoogleService-Info.plist in Resources */,
